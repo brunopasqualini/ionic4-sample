@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalhes do Usuário</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="user != undefined">
+    <ion-card-header>
+      <ion-img [src]="user.avatar_url"></ion-img>
+      <ion-card-subtitle>{{user.login}}</ion-card-subtitle>
+      <ion-card-title>{{user.name}}</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+        <ion-badge color="primary">Public repo: {{user.public_repos}}</ion-badge>
+        <ion-badge color="secondary">Followers: {{user.followers}}</ion-badge>
+        <ion-badge color="success">Following: {{user.following}}</ion-badge>
+    </ion-card-content>
+    <ion-item>
+      Account created: {{dateFormatted(user.created_at)}}
+    </ion-item>
+    <ion-item>
+      Last acivitiy: {{dateFormatted(user.updated_at)}}
+    </ion-item>
+  </ion-card>
+</ion-content>
